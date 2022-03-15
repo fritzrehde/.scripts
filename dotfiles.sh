@@ -1,10 +1,11 @@
-#!/bin/zsh
+#!/bin/bash
 
-git_cmd=(/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME)
-if [[ $# == 0 ]]; then
-	commit_msg="Updated some config files"
-	head -n -1 ~/.config_files | fzf | xargs -I % ${git_cmd} add %
-	${git_cmd} commit -m "$commit_msg"; ${git_cmd} push
+GIT_CMD="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+if [ $# == 0 ]; then
+	MSG="Updated some config files"
+	${GIT_CMD} add $(head --lines -1 ~/.config_files)
+	# head --lines -1 ~/.config_files | xargs -I % ${GIT_CMD} add %
+	${GIT_CMD} commit -m "$MSG"; ${GIT_CMD} push
 else
-	${git_cmd} $*
+	${GIT_CMD} $*
 fi

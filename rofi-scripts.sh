@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPTS=("fzf-nvim.sh scripts" sys-info.sh time.sh)
+SCRIPTS=("fzf-nvim.sh scripts" dotfiles.sh sys-info.sh time.sh)
 CMD=$(printf "%s\n" "${SCRIPTS[@]}" | rofi -dmenu)
 case "$CMD" in
 	"fzf-nvim.sh scripts")
