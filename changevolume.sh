@@ -6,23 +6,23 @@ function send_notification() {
 }
 
 case $1 in
-up)
-	# Set the volume on (if it was muted)
-	pamixer -u
-	pamixer -i 5 --allow-boost
-	send_notification $1
-	;;
-down)
-	pamixer -u
-	pamixer -d 5 --allow-boost
-	send_notification $1
-	;;
-mute)
-	pamixer -t
-	if $(pamixer --get-mute); then
-		dunstify "Muted" -a "ignorehistory" -u low -t 1000 -r 9999
-	else
-		send_notification up
-	fi
-	;;
+	up)
+		# Set the volume on (if it was muted)
+		pamixer -u
+		pamixer -i 5 --allow-boost
+		send_notification $1
+		;;
+	down)
+		pamixer -u
+		pamixer -d 5 --allow-boost
+		send_notification $1
+		;;
+	mute)
+		pamixer -t
+		if $(pamixer --get-mute); then
+			dunstify "Muted" -a "ignorehistory" -u low -t 1000 -r 9999
+		else
+			send_notification up
+		fi
+		;;
 esac

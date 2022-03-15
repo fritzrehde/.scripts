@@ -1,6 +1,6 @@
 #!/bin/sh
 OUTPUT=/home/fritz/Downloads/screenshots/%Y-%m-%d-%T.png
-CMD='echo $f | xclip -selection clipboard -i'
+CMD='echo -n $f | xclip -selection clipboard -i'
 
 case "$1" in
 	"select")
