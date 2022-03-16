@@ -4,7 +4,7 @@ FZF_OPTS=(--preview="cat {}")
 case $1 in
 	config)
 		search_path=~
-		FILES=$(cat ~/.config_files | cut -c 3-)
+		FILES=$(cat ~/.config_files)
 		;;
 	scripts)
 		search_path=~/.local/bin
