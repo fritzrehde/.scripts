@@ -8,7 +8,7 @@ case $2 in
 		CONFIG=zathura
 		;;
 	alt)
-		CONFIG=zathura/altrc
+		CONFIG=zathura/alt
 		;;
 esac
 

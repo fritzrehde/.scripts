@@ -7,7 +7,8 @@ if [ $# == 0 ]; then
 	${GIT_CMD} add $(head -n -1 ~/.config_files)
 	${GIT_CMD} commit -m "$MSG"
 	${GIT_CMD} push
-	[ $? -eq 1 ] && dunstify "dotfiles error"
+	[ $? -eq 1 ] && MSG="dotfiles error" || MSG="dotfiles success"
+	dunstify "$MSG"
 else
 	${GIT_CMD} $*
 fi
