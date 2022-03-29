@@ -14,4 +14,4 @@ function toggle_prio()
 export -f toggle_prio
 
 declare -i i=0
-todo.sh -Pd ~/.todo/config ls | fzf -e --ansi --with-nth=2.. | awk '{print $1}' | xargs -I % bash -c 'toggle_prio % i; i=$((i+1))'
+todo.sh -P ls | fzf -e --ansi --with-nth=2.. | awk '{print $1}' | xargs -I % bash -c 'toggle_prio % i; i=$((i+1))'

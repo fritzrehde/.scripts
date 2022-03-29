@@ -2,7 +2,7 @@
 
 function torrent_id()
 {
-	echo "$1" | awk { 'print $1' }
+	echo "$1" | awk '{ print $1 }'
 }
 
 case $1 in
