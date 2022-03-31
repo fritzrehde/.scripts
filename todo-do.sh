@@ -14,8 +14,8 @@ export -f toggle_prio
 FZF_OPTS=$(
 	tr -d '\n' <<-END
 	--bind=
-	L:execute-silent(todo.sh -fnA do {+1})+clear-query+first+reload(todo.sh -P ls),
-	I:execute-silent(bash -c 'toggle_prio {+1}')+clear-query+first+reload(todo.sh -P ls)
+	L:execute-silent(todo.sh -fnA do {+1})+reload(todo.sh -P ls),
+	I:execute-silent(bash -c 'toggle_prio {+1}')+reload(todo.sh -P ls)
 	END
 )
 

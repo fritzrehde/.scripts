@@ -11,9 +11,9 @@ if [ $# -eq 0 ]; then
 	${GIT_CMD} push
 
 	[ $? -eq 1 ] \
-		&& DUNST_MSG="git dotfiles error" \
-		|| DUNST_MSG="git dotfiles success"
-	dunstify "$DUNST_MSG"
+		&& DUNST_MSG="Error" \
+		|| DUNST_MSG="Done"
+	dunstify "$DUNST_MSG" "dotfiles"
 else
 	${GIT_CMD} $*
 fi

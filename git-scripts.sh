@@ -7,7 +7,10 @@ git add -A
 git commit -m "$COMMIT_MSG"
 git push
 
-[ $? -eq 1 ] \
-	&& DUNST_MSG="git scripts error" \
-	|| DUNST_MSG="git scripts success"
-dunstify "$DUNST_MSG"
+if [ $? -eq 1 ]; then
+	DUNST_MSG="Error"
+else
+	DUNST_MSG="Done"
+	DUNST_ARGS="-u critical"
+fi
+dunstify "$DUNST_MSG" "scripts" "$DUNST_ARGS"

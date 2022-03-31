@@ -19,6 +19,7 @@ case "$CMD" in
 		tmux display-popup -w 50% -h 60% -E 'fzf-nvim.sh scripts'
 		;;
 	*)
+		# eval "$CMD"
 		eval "$HOME/.local/bin/$CMD"
 		# sh -c "$HOME/.local/bin/$CMD"
 		;;

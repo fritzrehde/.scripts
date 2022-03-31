@@ -16,7 +16,7 @@ case $1 in
 		case $2 in
 			cur)
 				CURRENT_PATH=$(tmux display-message -p '#{pane_CURRENT_PATH}')
-				if SEARCH_PATH=$(cd "$CURRENT_PATH"; git rev-parse --show-toplevel 2> /dev/null) ; then
+				if SEARCH_PATH=$(cd "$CURRENT_PATH"; git rev-parse --show-toplevel 2> /dev/null); then
 					FZF_OPTS+=("--header=$(basename ${SEARCH_PATH})")
 				else
 					SEARCH_PATH=$CURRENT_PATH
