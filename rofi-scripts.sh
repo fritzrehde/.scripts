@@ -2,8 +2,8 @@
 
 SCRIPTS=$(
 	cat <<-END
-	startup.sh
 	fzf-nvim.sh scripts
+	startup.sh
 	git-dotfiles.sh
 	git-scripts.sh
 	new-script.sh

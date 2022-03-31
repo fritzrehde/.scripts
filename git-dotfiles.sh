@@ -10,10 +10,13 @@ if [ $# -eq 0 ]; then
 	${GIT_CMD} commit -m "$COMMIT_MSG"
 	${GIT_CMD} push
 
-	[ $? -eq 1 ] \
-		&& DUNST_MSG="Error" \
-		|| DUNST_MSG="Done"
-	dunstify "$DUNST_MSG" "dotfiles"
+	if [ $? -eq 1 ]; then
+		DUNST_MSG="Error"
+		DUNST_ARGS="-u critical"
+	else
+		DUNST_MSG="Done"
+	fi
+	dunstify "$DUNST_MSG" "dotfiles" -t=2000 $DUNST_ARGS
 else
 	${GIT_CMD} $*
 fi
