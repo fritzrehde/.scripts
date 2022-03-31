@@ -1,12 +1,12 @@
 #!/bin/bash
 
-function toggle_prio()
+toggle_prio()
 {
 	for i in "$@"
 	do
-	HAS_PRIO=$(todo.sh pri $i A)
+	HAS_PRIO=$(todo.sh pri "$i" A)
 	[ -n "$HAS_PRIO" ] \
-		&& todo.sh depri $i
+		&& todo.sh depri "$i"
 	done
 }
 export -f toggle_prio

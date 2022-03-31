@@ -1,4 +1,5 @@
 #!/bin/sh
+
 OUTPUT=/home/fritz/Downloads/screenshots/%Y-%m-%d-%T.png
 CMD='echo -n $f | xclip -selection clipboard -i'
 

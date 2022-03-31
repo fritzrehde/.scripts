@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
 # convert spaces to tabs in provided files
 
-tab_size=$1
+TAB_SIZE=$1
 shift
+
 for a in "$@"
 do
-	unexpand -t "$tab_size" $a > $a-notab
-	mv $a-notab $a
+	unexpand -t "$TAB_SIZE" "$a" > "$a-notab"
+	mv "$a-notab" "$a"
 done

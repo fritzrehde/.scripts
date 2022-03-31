@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PDF="$1"
 WID=$(xdo id)
@@ -12,5 +12,5 @@ case $2 in
 		;;
 esac
 
-xdo close $WID
-zathura -c ~/.config/$CONFIG $PDF &
+xdo close "$WID"
+zathura -c ~/.config/$CONFIG "$PDF" &

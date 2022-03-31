@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 bspc rule -a qutebrowser --one-shot desktop=1
 qutebrowser &

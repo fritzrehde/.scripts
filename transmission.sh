@@ -2,7 +2,7 @@
 
 function torrent_id()
 {
-	echo "$1" | awk '{ print $1 }'
+	echo "$1" | awk '{print $1}'
 }
 
 case $1 in
@@ -10,18 +10,20 @@ case $1 in
 		transmission-remote -a "$(xclip -selection clipboard -o)"
 		;;
 	toggle)
-		[ "$(echo "$2" | awk { 'print $7' })" = "paused" ] \
-			&& transmission-remote -t $(torrent_id "$2") -s \
-			|| transmission-remote -t $(torrent_id "$2") -S
+		if [ "$(echo "$2" | awk '{print $7}')" = "paused" ]; then
+			transmission-remote -t "$(torrent_id "$2")" -s
+		else
+			transmission-remote -t "$(torrent_id "$2")" -S
+		fi
 		;;
 	start)
-		transmission-remote -t $(torrent_id "$2") -s
+		transmission-remote -t "$(torrent_id "$2")" -s
 		;;
 	stop)
-		transmission-remote -t $(torrent_id "$2") -S
+		transmission-remote -t "$(torrent_id "$2")" -S
 		;;
 	remove)
-		transmission-remote -t $(torrent_id "$2") -r
+		transmission-remote -t "$(torrent_id "$2")" -r
 		;;
 	*)
 		FZF_OPTS=$(

@@ -10,13 +10,14 @@ if [ -z "$VIDEO_DESKTOP" ]; then
 fi
 
 case $1 in
-focus)
-	bspc desktop -f $VIDEO_DESKTOP
-	;;
-stay)
-	MPV_ARGS+=(--pause)
-	;;
+	focus)
+		bspc desktop -f "$VIDEO_DESKTOP"
+		;;
+	stay)
+		MPV_ARGS+=(--pause)
+		;;
 esac
 
-xclip -selection clipboard -o | xargs mpv ${MPV_ARGS[*]}
-bspc desktop -f $START_DESKTOP
+mpv "${MPV_ARGS[*]}" "$(xclip -selection clipboard -o)"
+# xclip -selection clipboard -o | xargs mpv ${MPV_ARGS[*]}
+bspc desktop -f "$START_DESKTOP"

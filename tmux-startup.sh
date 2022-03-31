@@ -1,7 +1,7 @@
-#!/bin/zsh
+#!/bin/sh
 
-if [[ $# == 1 ]]; then
-	tmux new-session -A -s "$1"
+if [ $# -eq 1 ]; then
+	tmux new-session -As "$1"
 else
-	tmux new-session -A -s misc
+	tmux new-session -As "misc"
 fi
