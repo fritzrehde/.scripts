@@ -16,7 +16,7 @@ if [ $# -eq 0 ]; then
 	else
 		DUNST_MSG="Done"
 	fi
-	dunstify "$DUNST_MSG" "dotfiles" -t=2000 $DUNST_ARGS
+	dunstify "$DUNST_MSG" "dotfiles" -t 2000 $DUNST_ARGS
 else
 	${GIT_CMD} $*
 fi
