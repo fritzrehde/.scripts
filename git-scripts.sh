@@ -13,4 +13,4 @@ if [ $? -eq 1 ]; then
 else
 	DUNST_MSG="Done"
 fi
-dunstify "$DUNST_MSG" "scripts" -t=2000 $DUNST_ARGS
+dunstify "$DUNST_MSG" "scripts" -t 2000 $DUNST_ARGS
