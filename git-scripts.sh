@@ -9,10 +9,8 @@ git push
 
 if [ $? -eq 1 ]; then
 	DUNST_MSG="Error"
+	DUNST_ARGS="-u critical"
 else
 	DUNST_MSG="Done"
-	DUNST_ARGS="-u critical"
 fi
-# dunstify "$DUNST_MSG" "scripts"
 dunstify "$DUNST_MSG" "scripts" $DUNST_ARGS
-# dunstify "$DUNST_MSG" "scripts" "$DUNST_ARGS"
