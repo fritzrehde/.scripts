@@ -13,5 +13,6 @@ else
 	DUNST_MSG="Done"
 	DUNST_ARGS="-u critical"
 fi
-dunstify "$DUNST_MSG" "scripts"
+# dunstify "$DUNST_MSG" "scripts"
+dunstify "$DUNST_MSG" "scripts" $DUNST_ARGS
 # dunstify "$DUNST_MSG" "scripts" "$DUNST_ARGS"
