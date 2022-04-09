@@ -19,5 +19,6 @@ FZF_OPTS=$(
 	END
 )
 
-todo.sh -P ls | fzf "$FZF_OPTS" -e --ansi --with-nth=2.. \
+todo.sh -P ls \
+	| fzf "$FZF_OPTS" -e --ansi --with-nth=2.. \
 	| awk '{print $1}' | tr '\n' ' ' | xargs -I % todo.sh -fnA do %

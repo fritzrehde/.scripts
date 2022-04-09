@@ -2,25 +2,25 @@
 
 SCRIPTS=$(
 	cat <<-END
-	fzf-nvim.sh scripts
-	startup.sh
-	git-dotfiles.sh
-	git-scripts.sh
-	new-script.sh
-	sys-info.sh
-	time.sh
-	color-picker.sh
+	fzf-nvim scripts
+	startup
+	settings
+	xrandr-monitor
+	git-dotfiles
+	git-scripts
+	sys-info
+	time
+	color-picker
+	webcam-preview
 	END
 )
 
 CMD=$(echo "$SCRIPTS" | rofi -dmenu)
 case "$CMD" in
-	"fzf-nvim.sh scripts")
-		tmux display-popup -w 50% -h 60% -E 'fzf-nvim.sh scripts'
+	"fzf-nvim scripts")
+		tmux display-popup -w 50% -h 60% -E "fzf-nvim.sh scripts"
 		;;
 	*)
-		# eval "$CMD"
-		eval "$HOME/.local/bin/$CMD"
-		# sh -c "$HOME/.local/bin/$CMD"
+		eval "$CMD.sh"
 		;;
 esac

@@ -8,22 +8,22 @@ send_notification()
 
 case $1 in
 	up)
-		# Set the volume on (if it was muted)
-		pamixer -u
-		pamixer -i 5 --allow-boost
+		pamixer --unmute
+		pamixer --increase 5 --allow-boost
 		send_notification
 		;;
 	down)
-		pamixer -u
-		pamixer -d 5 --allow-boost
+		pamixer --unmute
+		pamixer --decrease 5 --allow-boost
 		send_notification
 		;;
 	mute)
-		pamixer -t
+		pamixer --toggle-mute
 		if pamixer --get-mute; then
 			dunstify "Muted" -a "ignorehistory" -u low -t 1000 -r 9999
 		else
 			send_notification
 		fi
+		# polybar-msg action mute hook 0
 		;;
 esac
