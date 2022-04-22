@@ -3,7 +3,7 @@
 RESOLUTION=$(xrandr | grep "*" | awk '{ print $1 }')
 WIDTH=$(echo "$RESOLUTION" | cut -d "x" -f 1)
 HEIGHT=$(echo "$RESOLUTION" | cut -d "x" -f 2)
-# echo "SCREEN: ${W}x${H}"
+echo "SCREEN: ${WIDTH}x${HEIGHT}"
 
 for i in floating_small floating_tall
 do
@@ -21,5 +21,5 @@ do
 	Y=$(echo "scale=0; (${HEIGHT}-${H})/2" | bc)
 
 	bspc rule -a "$i" state=floating focus=on rectangle=${W}x${H}+${X}+${Y}
-	# echo "$i: ${W}x${H}+${X}+${Y}"
+	echo "$i: ${W}x${H}+${X}+${Y}"
 done

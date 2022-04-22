@@ -2,8 +2,9 @@
 
 # add multiple todos (!-suffix means priority A) to todo.sh
 
-echo -n "todo: "
-read -r raw
+raw=$(rofi -dmenu)
+[ "$?" -eq 1 ] && exit 1
+
 single_seperator=${raw//; /;}
 
 IFS=';' read -ra todos <<< "$single_seperator"
