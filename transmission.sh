@@ -36,8 +36,8 @@ case $1 in
 			p:execute-silent(transmission.sh add)+reload(transmission-remote -l),
 			l:execute-silent(transmission.sh start {})+reload(transmission-remote -l),
 			h:execute-silent(transmission.sh stop {})+reload(transmission-remote -l),
-			space:execute-silent(transmission.sh toggle {})+reload(transmission-remote -l),
 			x:execute-silent(transmission.sh remove {})+reload(transmission-remote -l)
+			space:execute-silent(transmission.sh toggle {})+reload(transmission-remote -l),
 			END
 		)
 

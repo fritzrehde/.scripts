@@ -14,7 +14,7 @@ case $1 in
 		bspc desktop -f "$VIDEO_DESKTOP"
 		;;
 	stay)
-		MPV_ARGS+=(--pause)
+		MPV_ARGS+=(--pause --script-opts-append=osc-visibility=always)
 		;;
 esac
 
