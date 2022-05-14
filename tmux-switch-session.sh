@@ -3,7 +3,7 @@
 # switch between tmux sessions through tmux popup window
 
 current_session=$(tmux display-message -p '#{session_name}')
-SESSIONS=$(tmux list-sessions -F '#{session_name}' | sed "/$current_session/d")
+SESSIONS=$(tmux list-sessions -F '#{session_name}' | grep --invert-match "^${current_session}$")
 if [ "$(echo "$SESSIONS" | wc -l)" -eq 1 ]; then
 	tmux switch-client -t "$SESSIONS"
 else
