@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $1 in
-	create)
+	new)
 		gh repo create "$2" --clone --private
 		# cd ./$2
 		;;

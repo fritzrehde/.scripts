@@ -7,6 +7,7 @@ SCRIPTS=$(
 	settings
 	xrandr-monitor
 	vpn
+	download-clipboard
 	git-dotfiles
 	git-scripts
 	sys-info

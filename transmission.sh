@@ -7,7 +7,7 @@ function torrent_id()
 
 case $1 in
 	add)
-		transmission-remote -a "$(xclip -selection clipboard -o)"
+		transmission-remote -a "$(clipboard-paste.sh)"
 		;;
 	toggle)
 		if [ "$(echo "$2" | awk '{print $7}')" = "paused" ]; then

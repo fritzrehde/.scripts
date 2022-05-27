@@ -18,6 +18,6 @@ case $1 in
 		;;
 esac
 
-# mpv "${MPV_ARGS[*]}" "$(xclip -selection clipboard -o)"
-xclip -selection clipboard -o | xargs mpv ${MPV_ARGS[*]}
+# mpv "${MPV_ARGS[*]}" "$(clipboard-paste.sh)"
+clipboard-paste.sh | xargs mpv ${MPV_ARGS[*]}
 bspc desktop -f "$START_DESKTOP"
